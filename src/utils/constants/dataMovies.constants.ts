@@ -1,9 +1,10 @@
-export interface IdataMovies {
+interface IDataMovies {
     adult: boolean;
     backdrop_path: string;
     genre_ids: number[];
     id: number;
     original_language: string;
+
     original_title: string;
     overview: string;
     popularity: number;
@@ -15,7 +16,7 @@ export interface IdataMovies {
     vote_count: number;
 }
 
-export const dataMovies:IdataMovies[] = [
+export const dataMovies: IDataMovies[] = [
     {
         "adult": false,
         "backdrop_path": "/qjGrUmKW78MCFG8PTLDBp67S27p.jpg",

@@ -2,10 +2,11 @@ import React, {FC} from 'react';
 import styles from './MovieCard.module.css';
 
 interface MovieCardProps {
+    title: string
 }
 
-const MovieCard: FC<MovieCardProps> = () => (
-    <div className={styles.MovieCard} style={{background: `url("../../../../public/img/photo.jpg")`}}>
+const MovieCard: FC<MovieCardProps> = ({title}) => (
+    <div className={styles.MovieCard}>
 
         <div className={styles.Content}>
 
@@ -16,11 +17,11 @@ const MovieCard: FC<MovieCardProps> = () => (
                 <div className={styles.CardIcon}>
                     <button>
                         <img className={styles.Icon}
-                             src="../../../../public/img/icon/5349757_award_bookmark_favorite_prize_rating_icon.svg"
+                             src="src/img/icon/5349757_award_bookmark_favorite_prize_rating_icon.svg"
                              alt="star"/>
                     </button>
                     <button>
-                        <img className={styles.Icon} src="../../../../public/img/icon/351987_bookmark_icon.svg"
+                        <img className={styles.Icon} src="src/img/icon/351987_bookmark_icon.svg"
                              alt="save"/>
                     </button>
 
@@ -29,7 +30,7 @@ const MovieCard: FC<MovieCardProps> = () => (
 
             <div className={styles.Container}>
                 <div className={styles.Title}>
-                    <p className={styles.Text}>Аватар</p>
+                    <p className={styles.Text}>{title}</p>
                 </div>
 
                 <footer>

@@ -4,7 +4,8 @@
     color: black;
     display: flex;
 
-    background-repeat: no-repeat;
+
+    background: url("src/img/photo.jpg");
 }
 
 
@@ -66,6 +67,7 @@
 
     color: #ffffff;
     margin-top: 50%;
+    margin-bottom: 50%;
     /*min-height: 100%;*/
     /*display: grid;*/
     /*grid-template-rows: auto 1fr auto;*/

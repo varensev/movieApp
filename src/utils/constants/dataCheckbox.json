@@ -1,9 +1,4 @@
-interface IdataCheckbox {
-    id: number,
-    name: string
-}
-
-export const dataCheckbox : IdataCheckbox[] = [
+[
     {
         "id": 28,
         "name": "боевик"
