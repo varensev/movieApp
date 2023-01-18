@@ -38,6 +38,7 @@ select {
 
 fieldset {
     height: calc(100% - 380px);
+    overflow-y: auto;
     border: 0;
     margin: 0;
     padding: 0;

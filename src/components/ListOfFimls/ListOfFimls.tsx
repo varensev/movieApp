@@ -1,6 +1,9 @@
 import React, {FC} from 'react';
 import styles from './ListOfFimls.module.css';
 import Pagination from "./Pagination/Pagination";
+import Сheckbox from "../Сheckbox/Сheckbox";
+import {dataCheckbox} from "../../utils/constants/dataCheckbox.constants";
+
 
 interface ListOfFimlsProps {
 }
@@ -12,7 +15,7 @@ const ListOfFimls: FC<ListOfFimlsProps> = () => (
 
 
         <form className={styles.Sort}>
-            <label  htmlFor="sort-film">Сортировка по:</label>
+            <label htmlFor="sort-film">Сортировка по:</label>
             <select name="city" id="sort-film">
                 <option value="">-- Выберите сортировку --</option>
                 <option value="1">Популярные</option>
@@ -30,12 +33,8 @@ const ListOfFimls: FC<ListOfFimlsProps> = () => (
             </select>
         </form>
 
-
         <fieldset>
-            <div>
-                <input type="checkbox" id="horns" name="horns"/>
-                    <label htmlFor="horns">Боевик</label>
-            </div>
+            {dataCheckbox.map(({id , name})=> <Сheckbox key={id} name={name}/>)}
         </fieldset>
 
         <Pagination/>
