@@ -1,0 +1,117 @@
+.MovieCard {
+    width: 100%;
+    height: 100%;
+    color: black;
+    display: flex;
+
+    background-repeat: no-repeat;
+}
+
+
+
+.Content{
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+
+.CardTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+
+}
+
+.Rating{
+    background: #444444;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.CardIcon{
+    display: flex;
+    flex-direction: row;
+    background: #444444;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 10px;
+    align-items: center;
+
+
+}
+.Icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    margin: 3px;
+}
+
+.Container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+
+    text-align: center;
+    padding-bottom: 40px;
+    width: 100%;
+    height: calc(100% - 49px);
+}
+.Title{
+
+    color: #ffffff;
+    margin-top: 50%;
+    /*min-height: 100%;*/
+    /*display: grid;*/
+    /*grid-template-rows: auto 1fr auto;*/
+
+
+}
+.Text{
+    font-size: 20px;
+    margin: 0 auto 0;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    width: 100%;
+
+    background: #444444;
+
+}
+.More{
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    border: 0;
+    color: white;
+    background: #444444;
+    padding: 8px;
+
+}
+
+.More:hover{
+    transition:  1s, color 1s;
+    border: 0;
+    background-color: #ffffff;
+    color: #626262;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+}

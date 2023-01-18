@@ -1,0 +1,40 @@
+.Header {
+    /*max-width: 1280px;*/
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #cbcbcb; /* Параметры линии */
+}
+
+.Home{
+    padding: 3px 30px;
+    cursor: pointer;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    /*margin-bottom: 8px;*/
+
+}
+
+.Login{
+    padding: 3px 30px;
+    cursor: pointer;
+
+    font: inherit;
+
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: black;
+}
+
+.Login:hover{
+    transition:  1s, color 1s;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: #444444;
+    color: #ffffff;
+}
+
