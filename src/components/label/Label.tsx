@@ -7,10 +7,10 @@ interface ILabelProps {
 }
 
 
-const Label: FC<ILabelProps> = ({title,htmlFor}) => (
-    <label className={styles.Label} htmlFor={htmlFor}>
+function Label({title, htmlFor}:ILabelProps) {
+    return <label className={styles.Label} htmlFor={htmlFor}>
         {title}
-    </label>
-);
+    </label>;
+}
 
-export default Label;
+export {Label};

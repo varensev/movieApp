@@ -10,20 +10,35 @@
         "plugin:react/jsx-runtime",
         "plugin:import/recommended",
         "airbnb",
-        "prettier"
+        "prettier",
+        "plugin:@typescript-eslint/recommended"
     ],
-
+    "overrides": [
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
     "plugins": [
         "react-hooks",
-        "react"
+        "react",
+        "@typescript-eslint"
     ],
-
     "rules": {
         "react/react-in-jsx-scope": "off",
         "import/prefer-default-export": "off",
+        "camelcase": "off",
         "react/prop-types": 0,
         "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/exhaustive-deps": "warn",
+        "react/function-component-definition": [
+            "error",
+            {
+
+                "unnamedComponents": "arrow-function"
+            }
+        ]
     }
 }

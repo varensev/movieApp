@@ -1,49 +1,34 @@
 import React, {FC} from 'react';
 import styles from './SideBar.module.css';
-import Pagination from "./Pagination/Pagination";
-import Сheckbox from "../Сheckbox/Сheckbox";
+import {Pagination} from './pagination/Pagination';
+import MyCheckbox from "../checkbox/Сheckbox";
 import dataCheckbox from "../../utils/constants/dataCheckbox.json";
-import SelectForm from "../SelectForm/SelectForm";
-import Label from "../Label/Label";
-import SortForm from "../SortForm/SortForm";
+import {Sort} from "../sort/Sort"
+import {sortMoviesGenres} from "../../redux/dispatch";
 
-interface ISideBar {
-    id: number,
+interface ICheckbox {
+    id: number
     name: string
+
 }
 
-const data: ISideBar[] = dataCheckbox
-const labelData = {
-    typeSort: {
-        sort: "Сортировка по:",
-        year: "Год релиза:"
-    },
-    htmlFor: "sort-film"
+
+function SideBar() {
+    return (
+        <div className={styles.ListOfFilms}>
+            <p className={styles.Title}>Фильтры:</p>
+            <button type="button" className={styles.Reset}>Сбросить все фильтры</button>
+            <Sort/>
+
+            <fieldset>
+                {dataCheckbox.map(({id, name}: ICheckbox) => <MyCheckbox  key={id} id={id} name={name}/>)}
+            </fieldset>
+
+            <Pagination/>
+        </div>
+    );
 }
-const SideBar: FC<ISideBar> = () => (
-    <div className={styles.ListOfFimls}>
-        <p className={styles.Title}>Фильтры:</p>
-        <button className={styles.Reset}>Сбросить все фильтры</button>
+
+export {SideBar};
 
 
-        <form className={styles.Sort}>
-            <Label title={labelData.typeSort.sort} htmlFor={labelData.htmlFor}/>
-            <SelectForm/>
-        </form>
-
-
-        <form className={styles.Sort}>
-            <Label title={labelData.typeSort.year} htmlFor={labelData.htmlFor}/>
-            <SelectForm/>
-        </form>
-
-
-        <fieldset>
-            {data.map(({id,name}) => <Сheckbox key={id} name={name}/>)}
-        </fieldset>
-
-        <Pagination/>
-    </div>
-);
-
-export default SideBar;
