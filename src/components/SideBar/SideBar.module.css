@@ -22,7 +22,21 @@
     color: white;
     cursor: pointer;
     padding: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
+}
+
+.favorites{
+    display: flex;
+}
+
+.favorites button{
+    width: 100%;
+    background: #8080f3;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    margin: 8px;
 }
 
 .Sort {
@@ -33,7 +47,7 @@
 
 
 fieldset {
-    height: calc(100% - 380px);
+    height: calc(100% - 440px);
     overflow-y: auto;
     border: 0;
     margin: 0;

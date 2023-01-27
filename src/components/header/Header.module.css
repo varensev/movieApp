@@ -19,22 +19,20 @@
 }
 
 .Login{
-    padding: 3px 30px;
+    padding: 3px 20px;
     cursor: pointer;
-
     font: inherit;
-
-    border: 1px solid black;
-    border-radius: 25px;
-    background-color: #ffffff;
-    color: black;
+    border-radius: 8px;
+    background: #8181f4;
+    color: #ffffff;
+    border: none;
 }
 
 .Login:hover{
     transition:  1s, color 1s;
-    border: 1px solid black;
-    border-radius: 25px;
-    background-color: #444444;
-    color: #ffffff;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
 }
 

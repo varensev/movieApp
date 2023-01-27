@@ -13,7 +13,7 @@ function MyCheckbox({name, id}: ICheckbox) {
     return (
         <div>
             <input onChange={() => sortMoviesGenres(id)} type="checkbox" value={name} />
-            <label htmlFor="horns">{id}</label>
+            <label htmlFor="horns">{name}</label>
         </div>
     );
 }

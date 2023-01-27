@@ -1,0 +1,88 @@
+.wrapper{
+    width: 1050px;
+    height: calc(100vh - 70px);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.content{
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+
+}
+
+.exitTop{
+    display: flex;
+    justify-content: right;
+
+}
+
+.exit{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100% - 35px);
+}
+
+.title{
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    color: black;
+    font-size: 1.7rem;
+}
+
+.formAuth{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.formAuth input{
+    margin: 0 0 15px;
+    padding: 6px;
+    color: #626262;
+    outline:none;
+}
+
+.formAuth button {
+    padding: 6px;
+    background: #8181f4;
+    cursor: pointer;
+    font: inherit;
+    border: none;
+    color: white;
+}
+
+.formAuth button:hover{
+    transition:  1s, color 1s;
+    background: #53537c;
+    color: #ffffff;
+}
+
+.isValid{
+    color: red;
+    margin-bottom: 8px;
+}

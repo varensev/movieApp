@@ -2,20 +2,22 @@ import {combineReducers, createStore} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {dataMovies} from "../utils/constants/dataMovies.constants";
 import {
-    AFTER, afterPage,
-    BEFORE, beforePage,
+    AFTER, AUTHORIZATION,
+    BEFORE,
     POPULARITY_DOWN,
     POPULARITY_UP,
     SORT_GENRES,
-    SORT_YEAR, sortGenres,
+    SORT_YEAR,
     VOTE_AVERAGE_DOWN,
     VOTE_AVERAGE_UP
 } from "./action";
+
 
 interface IReducer {
     type: string
     payload: number[] | string
 }
+
 
 const defaultValue = {
     initList: dataMovies,
@@ -55,10 +57,19 @@ const reducerCounter = (state = {value: 1}, {type}: IReducer) => {
 }
 
 
+const reducerAuth = (state = {}, {type, payload}: { type: string, payload: string | number }) => {
+    switch (type) {
+        case AUTHORIZATION:
+            return {state, auth: payload}
+        default:
+            return state
+    }
+}
+
 const rootReducer = combineReducers({
     dataMovies: reducer,
-    reducerCounter
-
+    reducerCounter,
+    reducerAuth
 });
 
 
