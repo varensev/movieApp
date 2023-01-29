@@ -35,7 +35,8 @@ const reducer = (state = dataMovies, {type, payload}: IReducer) => {
         case VOTE_AVERAGE_UP:
             return [...state].sort((a, b) => a.vote_average - b.vote_average)
         case SORT_YEAR:
-            return [...state].filter(({release_date}) => release_date.slice(0, 4) === payload)
+            // TODO: in progress
+            return defaultValue.currentList.filter(({release_date}) => release_date.slice(0, 4) === payload)
         case SORT_GENRES:
             // TODO: in progress
             return defaultValue.currentList.filter(({genre_ids}) => genre_ids.includes(payload))
