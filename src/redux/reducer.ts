@@ -24,6 +24,7 @@ const defaultValue = {
     currentList: dataMovies,
     genresList: []
 }
+
 const reducer = (state = dataMovies, {type, payload}: IReducer) => {
     switch (type) {
         case POPULARITY_DOWN:
@@ -67,6 +68,7 @@ const reducerCounter = (state = {value: 1}, {type}: IReducer) => {
 const defaultToken = {
     auth : localStorage.getItem("token")
 }
+
 
 const reducerAuth = (state = defaultToken, {type, payload}: { type: string, payload: string | number }) => {
     switch (type) {
