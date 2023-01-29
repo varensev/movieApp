@@ -4,11 +4,10 @@ import {sortMoviesGenres} from "../../redux/dispatch";
 
 interface ICheckbox {
     name: string
-    id: number
+    id: number[]
 }
 
 function MyCheckbox({name, id}: ICheckbox) {
-    const [checked, setChecked] = useState([])
 
     return (
         <div>

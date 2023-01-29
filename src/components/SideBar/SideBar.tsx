@@ -1,10 +1,12 @@
 import React, {FC} from 'react';
+import {useSelector} from "react-redux";
 import styles from './SideBar.module.css';
 import {Pagination} from './pagination/Pagination';
 import MyCheckbox from "../checkbox/Сheckbox";
 import dataCheckbox from "../../utils/constants/dataCheckbox.json";
 import {Sort} from "../sort/Sort"
-import {sortMoviesGenres} from "../../redux/dispatch";
+import {sortFavorites, sortMoviesGenres, sortWatchLater} from "../../redux/dispatch";
+import {getStorage, keyLocalStorage} from "../../utils/localStorage/localstorage";
 
 interface ICheckbox {
     id: number
@@ -12,15 +14,31 @@ interface ICheckbox {
 
 }
 
+interface ISideBar {
+    setOpenModal: (value: boolean) => void
+}
 
-function SideBar() {
+function SideBar({setOpenModal}:ISideBar) {
+    const isValidAuth = useSelector(state => state.reducerAuth)
 
     const handleClickFavorites = () => {
-        console.log(handleClickFavorites)
+        if (!isValidAuth.auth) {
+            setOpenModal(true)
+        }
+        const movies = getStorage(keyLocalStorage.favorites)
+        if (movies) {
+            sortFavorites(movies)
+        }
     }
 
     const handleClickWatchLater = () => {
-        console.log(handleClickWatchLater)
+        if (!isValidAuth.auth) {
+            setOpenModal(true)
+        }
+        const movies = getStorage(keyLocalStorage.watchLater)
+        if (movies) {
+            sortWatchLater(movies)
+        }
     }
 
     return (

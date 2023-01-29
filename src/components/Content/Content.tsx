@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import {useSelector} from "react-redux";
 import styles from './Content.module.css';
 import MovieCard from "./movieCard/MovieCard";
@@ -8,7 +8,6 @@ import {pageNumber} from "../../utils/constants/typeSort.constants";
 interface IPageNumber {
     sliceDataFilms: []
 }
-
 
 
 function Content() {
@@ -22,11 +21,13 @@ function Content() {
 
     return (
         <div className={styles.Content}>
-            {sliceDataFilms.map(({id, title, vote_average, poster_path, backdrop_path}: IDataMovies) => <MovieCard key={id}
-                                  backdrop_path={backdrop_path}
-                                  poster_path={poster_path}
-                                  title={title}
-                                  vote_average={vote_average}
+            {sliceDataFilms.map(({id, title, vote_average, poster_path, backdrop_path}: IDataMovies) => <MovieCard
+                key={id}
+                backdrop_path={backdrop_path}
+                poster_path={poster_path}
+                title={title}
+                vote_average={vote_average}
+                id={id}
             />)}
         </div>
     )

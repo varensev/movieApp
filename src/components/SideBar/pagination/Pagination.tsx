@@ -7,7 +7,7 @@ import {setAfterPage, setBeforePage} from "../../../redux/dispatch";
 
 function Pagination() {
     const dataFilms = useSelector(state => state.dataMovies)
-    const countPage = useSelector(state => state.reducerCounter)
+    const countPage = useSelector(state => state.reducerCounter.value)
 
     const handleClickAfter = () => {
         setBeforePage(pageNumber.currentPage)
@@ -23,7 +23,7 @@ function Pagination() {
                 <button type="button" onClick={handleClickBefore} className={styles.Before}>Назад</button>
                 <button type="button" onClick={handleClickAfter} className={styles.After}>Вперед</button>
             </div>
-            <p className={styles.PageNumber}>{countPage.value} of {Math.ceil(dataFilms.length / 6)}</p>
+            <p className={styles.PageNumber}>{countPage} of {Math.ceil(dataFilms.length / 6)}</p>
         </div>
     );
 }

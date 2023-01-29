@@ -30,6 +30,7 @@ function FormAuth({setOpenModal}: IFormAuth) {
         event.preventDefault();
         if (helperAuth()) {
             userAuthorization(formToken)
+            localStorage.setItem("token", formToken)
             setOpenModal(false)
         }
     }

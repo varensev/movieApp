@@ -3,28 +3,41 @@ import {useSelector} from "react-redux";
 import styles from './MovieCard.module.css';
 import {IDataMovies} from "../../../utils/constants/dataFilms.interface";
 import {contextOpenModal} from "../../../pages/homePage/HomePage";
+import {keyLocalStorage, setStorage} from "../../../utils/localStorage/localstorage";
 
 interface MovieCardProps {
     title: string
     vote_average: number
     poster_path: string
     backdrop_path: string | null
+    id: number
 
 }
 
 
-const MovieCard: FC<MovieCardProps> = ({title, poster_path, backdrop_path, vote_average,}) => {
+const MovieCard: FC<MovieCardProps> = ({title, poster_path, backdrop_path, vote_average,id}) => {
     const setOpenModal = useContext(contextOpenModal);
     const isValidAuth = useSelector(state => state.reducerAuth)
 
     const imagePath = poster_path || backdrop_path;
 
-    const handleClick = () => {
+
+    const handleClickSaveFavorites = () => {
         if (!isValidAuth.auth) {
             setOpenModal(true)
+            return null
         }
         // TODO: in progress
-        console.log(title)
+        setStorage(keyLocalStorage.favorites, id)
+    }
+
+    const handleClickSaveWatchLater = () => {
+        if (!isValidAuth.auth) {
+            setOpenModal(true)
+            return null
+        }
+        // TODO: in progress
+        setStorage(keyLocalStorage.watchLater, id)
     }
 
     return (
@@ -43,12 +56,12 @@ const MovieCard: FC<MovieCardProps> = ({title, poster_path, backdrop_path, vote_
                         <p className={styles.Icon}>{vote_average}</p>
                     </div>
                     <div className={styles.CardIcon}>
-                        <button onClick={handleClick} type="button">
+                        <button onClick={handleClickSaveFavorites} type="button">
                             <img className={styles.Icon}
                                  src="src/img/icon/5349757_award_bookmark_favorite_prize_rating_icon.svg"
                                  alt="star"/>
                         </button>
-                        <button onClick={handleClick} type="button">
+                        <button onClick={handleClickSaveWatchLater} type="button">
                             <img className={styles.Icon} src="src/img/icon/351987_bookmark_icon.svg"
                                  alt="save"/>
                         </button>
