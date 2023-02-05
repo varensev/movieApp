@@ -2,17 +2,13 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import styles from './Content.module.css';
 import MovieCard from "./movieCard/MovieCard";
-import {IDataMovies} from "../../utils/constants/dataFilms.interface";
-import {pageNumber} from "../../utils/constants/typeSort.constants";
-
-interface IPageNumber {
-    sliceDataFilms: []
-}
+import {IDataMovies} from "../../utils/constants/data-films.interface";
+import {pageNumber} from "../../utils/constants/type-sort";
 
 
 function Content() {
-    const dataFilms = useSelector(state => state.dataMovies)
-    const counter = useSelector(state => state.reducerCounter)
+    const dataFilms = useSelector((state: { dataMovies: [] }) => state.dataMovies)
+    const counter = useSelector((state: { reducerCounter: { value: number } }) => state.reducerCounter)
 
     const lastIndex = counter.value * pageNumber.countMovie
     const firstIndex = lastIndex - pageNumber.countMovie

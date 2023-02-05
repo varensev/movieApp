@@ -3,10 +3,10 @@ import {useSelector} from "react-redux";
 import styles from './SideBar.module.css';
 import {Pagination} from './pagination/Pagination';
 import MyCheckbox from "../checkbox/Сheckbox";
-import dataCheckbox from "../../utils/constants/dataCheckbox.json";
+import dataCheckbox from "../../utils/constants/data-checkbox.json";
 import {Sort} from "../sort/Sort"
 import {sortFavorites, sortMoviesGenres, sortWatchLater} from "../../redux/dispatch";
-import {getStorage, keyLocalStorage} from "../../utils/localStorage/localstorage";
+import {getStorage, keyLocalStorage} from "../../utils/local-storage/localstorage";
 
 interface ICheckbox {
     id: number

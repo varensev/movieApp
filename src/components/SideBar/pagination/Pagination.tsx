@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {useSelector} from "react-redux";
 import styles from './Pagination.module.css';
-import {pageNumber} from "../../../utils/constants/typeSort.constants";
+import {pageNumber} from "../../../utils/constants/type-sort";
 import {setAfterPage, setBeforePage} from "../../../redux/dispatch";
 
 

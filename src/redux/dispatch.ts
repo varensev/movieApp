@@ -20,7 +20,7 @@ export const setAfterPage = (payload: number) => store.dispatch(afterPage(payloa
 
 export const setBeforePage = (payload: number) => store.dispatch(beforePage(payload))
 export const sortMoviesGenres = (payload: number[]) => store.dispatch(sortGenres(payload))
-export const userAuthorization = (payload: string | null) => store.dispatch(authorization(payload))
+export const userAuthorization = (payload: { password: string; login: string }) => store.dispatch(authorization(payload))
 export const sortFavorites = (payload: string[]) => store.dispatch(favorites(payload))
 export const sortWatchLater = (payload: string[]) => store.dispatch(watchLater(payload))
 

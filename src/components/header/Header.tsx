@@ -18,7 +18,7 @@ function Header() {
     return (
         <div>
             <div className={styles.Header}>
-                <button type="button" className={styles.Home}>Home</button>
+                <Link to="/" className={styles.Home}>Home</Link>
 
                 <button onClick={() => {
                     setOpenModal(true)

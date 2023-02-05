@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import style from "./FormAuth.module.css"
-import {tokenAuth} from "../../utils/constants/tokenAuth";
+import {tokenAuth} from "../../utils/constants/token-auth";
 import {userAuthorization} from "../../redux/dispatch";
 
 interface IFormAuth {
-    openModal: boolean
     setOpenModal: (value: boolean) => void
 }
 

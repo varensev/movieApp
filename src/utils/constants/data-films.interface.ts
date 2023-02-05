@@ -1,4 +1,5 @@
 interface IDataMovies {
+
     adult: boolean;
     backdrop_path: string;
     genre_ids: number[];

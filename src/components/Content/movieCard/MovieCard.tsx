@@ -1,51 +1,55 @@
-import React, {FC, useContext} from 'react';
-import {useSelector} from "react-redux";
+import React, { useContext } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styles from './MovieCard.module.css';
-import {IDataMovies} from "../../../utils/constants/dataFilms.interface";
-import {contextOpenModal} from "../../../pages/homePage/HomePage";
-import {keyLocalStorage, setStorage} from "../../../utils/localStorage/localstorage";
+import { contextOpenModal } from '../../../pages/homePage/HomePage';
+import { keyLocalStorage, setStorage } from '../../../utils/local-storage/localstorage';
 
 interface MovieCardProps {
-    title: string
-    vote_average: number
-    poster_path: string
-    backdrop_path: string | null
-    id: number
+    title: string;
+    vote_average: number;
+    poster_path: string;
+    backdrop_path: string | null;
+    id: number;
 
 }
 
+interface ISetModal {
+    setOpenModal: (value: boolean) => boolean;
+}
 
-const MovieCard: FC<MovieCardProps> = ({title, poster_path, backdrop_path, vote_average,id}) => {
+
+function MovieCard({ title, poster_path, backdrop_path, vote_average, id }: MovieCardProps) {
     const setOpenModal = useContext(contextOpenModal);
-    const isValidAuth = useSelector(state => state.reducerAuth)
+    const isValidAuth = useSelector((state: { reducerAuth: { auth: string } }) => state.reducerAuth);
 
     const imagePath = poster_path || backdrop_path;
 
 
     const handleClickSaveFavorites = () => {
         if (!isValidAuth.auth) {
-            setOpenModal(true)
-            return null
+            setOpenModal(true);
+            return;
         }
         // TODO: in progress
-        setStorage(keyLocalStorage.favorites, id)
-    }
+        setStorage(keyLocalStorage.favorites, id);
+    };
 
     const handleClickSaveWatchLater = () => {
         if (!isValidAuth.auth) {
-            setOpenModal(true)
-            return null
+            setOpenModal(true);
+            return;
         }
         // TODO: in progress
-        setStorage(keyLocalStorage.watchLater, id)
-    }
+        setStorage(keyLocalStorage.watchLater, id);
+    };
 
     return (
         <div className={styles.MovieCard} style={{
             background: `url("https://image.tmdb.org/t/p/w500/${imagePath}")`,
-            backgroundSize: "contain",
-            width: "257px",
-            height: "388px",
+            backgroundSize: 'contain',
+            width: '257px',
+            height: '388px',
         }}>
 
             <div className={styles.Content}>
@@ -56,14 +60,14 @@ const MovieCard: FC<MovieCardProps> = ({title, poster_path, backdrop_path, vote_
                         <p className={styles.Icon}>{vote_average}</p>
                     </div>
                     <div className={styles.CardIcon}>
-                        <button onClick={handleClickSaveFavorites} type="button">
+                        <button onClick={handleClickSaveFavorites} type='button'>
                             <img className={styles.Icon}
-                                 src="src/img/icon/5349757_award_bookmark_favorite_prize_rating_icon.svg"
-                                 alt="star"/>
+                                 src='src/img/icon/5349757_award_bookmark_favorite_prize_rating_icon.svg'
+                                 alt='star' />
                         </button>
-                        <button onClick={handleClickSaveWatchLater} type="button">
-                            <img className={styles.Icon} src="src/img/icon/351987_bookmark_icon.svg"
-                                 alt="save"/>
+                        <button onClick={handleClickSaveWatchLater} type='button'>
+                            <img className={styles.Icon} src='src/img/icon/351987_bookmark_icon.svg'
+                                 alt='save' />
                         </button>
 
                     </div>
@@ -75,7 +79,7 @@ const MovieCard: FC<MovieCardProps> = ({title, poster_path, backdrop_path, vote_
                     </div>
 
                     <footer>
-                        <button type="button" className={styles.More}>Подробнее</button>
+                        <Link to={`about/${id}`} className={styles.More}>Подробнее</Link>
                     </footer>
                 </div>
 
@@ -83,7 +87,7 @@ const MovieCard: FC<MovieCardProps> = ({title, poster_path, backdrop_path, vote_
             </div>
         </div>
     );
-};
+}
 
 export default MovieCard;
 
